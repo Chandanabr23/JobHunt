@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobHunt - Custom Job Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <div class="logo">
+            <h1>JobHunt</h1>
+        </div>
+        <div class="header-actions">
+            <button id="saved-jobs-btn" class="icon-btn" title="Saved Jobs">
+                Saved Jobs
+            </button>
+            <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                🌙
+            </button>
+        </div>
+    </header>
+    <main class="app-container">
+        <section class="search-section">
+            <h2 class="section-title">Find your next role</h2>
+            <form id="search-form" class="search-form">
+                <div class="form-group">
+                    <label for="search-input" class="sr-only">Job Keyword</label>
+                    <input type="text" id="search-input" placeholder="e.g. Software Engineer" required>
+                </div>
+                <div class="form-group">
+                    <label for="location-input" class="sr-only">Location</label>
+                    <input type="text" id="location-input" placeholder="e.g. London">
+                </div>
+                <button type="submit" class="search-btn">Search Jobs</button>
+            </form>
+            <div class="filters">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="remote-checkbox">
+                    Remote Only
+                </label>
+                <select id="country-select">
+                    <option value="gb">United Kingdom</option>
+                    <option value="us">United States</option>
+                    <option value="in">India</option>
+                    <option value="ca">Canada</option>
+                    <option value="au">Australia</option>
+                </select>
+            </div>
+        </section>
+        <section id="results-section" class="results-section">
+            <div id="loading-spinner" class="spinner hidden"></div>
+            <div id="jobs-container" class="jobs-grid">
+                <!-- Job cards will be injected here -->
+                <div class="empty-state">
+                    <p>Enter a keyword to start searching.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Saved Jobs Modal -->
+    <div id="saved-jobs-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Saved Jobs</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="saved-jobs-list" class="saved-jobs-list">
+                <!-- Saved jobs injected here -->
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
